@@ -1,0 +1,52 @@
+GET /: Print “Hello Palenca”
+
+curl -X 'GET' \
+  'http://127.0.0.1:8000/' \
+  -H 'accept: application/json'
+
+
+
+POST /uber/login
+
+curl -X 'POST' \
+  'http://127.0.0.1:8000/uber/login' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "email": "pierre@palenca.com",
+  "password": "MyPwdChingon123"
+}'
+
+[
+  200,
+  {
+    "message": "SUCCESS",
+    "access_token": "cTV0aWFuQ2NqaURGRE82UmZXNVBpdTRxakx3V1F5"
+  }
+]
+
+GET /uber/get-profile/<access_token>
+
+curl -X 'GET' \
+  'http://127.0.0.1:8000/uber/get-profile/cTV0aWFuQ2NqaURGRE82UmZXNVBpdTRxakx3V1F5' \
+  -H 'accept: application/json'
+
+[
+  200,
+  {
+    "message": "SUCCESS",
+    "platform": "uber",
+    "profile": {
+      "country": "mx",
+      "city_name": "Ciudad de Mexico",
+      "worker_id": "34dc0c89b16fd170eba320ab186d08ed",
+      "first_name": "Pierre",
+      "last_name": "Delarroqua",
+      "email": "pierre@palenca.com",
+      "phone_prefix": "+52",
+      "phone_number": "5576955981",
+      "rating": "4.8",
+      "lifetime_trips": 1254
+    }
+  }
+]
