@@ -2,6 +2,8 @@ from fastapi import FastAPI, HTTPException, Path
 from pydantic import BaseModel
 import re
 
+print("Empieza!")
+
 app = FastAPI()
 
 #  Class that inherits from BaseModel to create the User
